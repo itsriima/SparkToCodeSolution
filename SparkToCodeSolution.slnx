@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="SparkToCodeSolution/SparkToCodeSolution.csproj" />
+  <Project Path="Task4Project/Task4Project.csproj" Id="024a688f-bc6f-4f7a-9ce4-5e65b2f84e99" />
 </Solution>
