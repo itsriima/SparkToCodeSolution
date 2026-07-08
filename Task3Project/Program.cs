@@ -124,6 +124,18 @@
             }
 
             Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
+            //Task 9 - Round Up / Round Down Explorer
+            ////////////////////////////////////////////
+            Console.WriteLine("Enter a decimal number:");
+            double numbar = double.Parse(Console.ReadLine());
+
+            double nearest = Math.Round(numbar);
+            double roundUp = Math.Ceiling(numbar);
+            double roundDown = Math.Floor(numbar);
+
+            Console.WriteLine("Nearest Whole Number: " + nearest);
+            Console.WriteLine("Rounded Up: " + roundUp);
+            Console.WriteLine("Rounded Down: " + roundDown);
 
         }
     }
