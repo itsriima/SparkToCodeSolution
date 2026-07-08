@@ -332,6 +332,38 @@
                     Console.WriteLine("Invalid Region");
                     break;
             }
+            //13 - Triangle Type Classifier
+            ///////////////////////////////
+            Console.WriteLine("Enter the first side:");
+            double side1 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the second side:");
+            double side2 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the third side:");
+            double side3 = double.Parse(Console.ReadLine());
+
+            if ((side1 + side2 > side3) &&
+                (side1 + side3 > side2) &&
+                (side2 + side3 > side1))
+            {
+                if (side1 == side2 && side2 == side3)
+                {
+                    Console.WriteLine("Triangle Type: Equilateral");
+                }
+                else if (side1 == side2 || side1 == side3 || side2 == side3)
+                {
+                    Console.WriteLine("Triangle Type: Isosceles");
+                }
+                else
+                {
+                    Console.WriteLine("Triangle Type: Scalene");
+                }
+            }
+            else
+            {
+                Console.WriteLine("The sides do not form a valid triangle.");
+            }
         }
     }
 }
