@@ -166,6 +166,57 @@
                     Console.WriteLine("Invalid day number");
                     break;
             }
+            //10-Mini Calculator
+            ////////////////////
+            Console.WriteLine("Enter the first number:");
+            float num1 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the second number:");
+            float num2 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter an operator (+, -, *, /, %):");
+            char op = char.Parse(Console.ReadLine());
+
+            switch (op)
+            {
+                case '+':
+                    Console.WriteLine("Result = " + (num1 + num2));
+                    break;
+
+                case '-':
+                    Console.WriteLine("Result = " + (num1 - num2));
+                    break;
+
+                case '*':
+                    Console.WriteLine("Result = " + (num1 * num2));
+                    break;
+
+                case '/':
+                    if (num2 != 0)
+                    {
+                        Console.WriteLine("Result = " + (num1 / num2));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    break;
+
+                case '%':
+                    if (num2 != 0)
+                    {
+                        Console.WriteLine("Result = " + (num1 % num2));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid operator");
+                    break;
+            }
         }
     }
 }
