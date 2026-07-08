@@ -217,6 +217,34 @@
                     Console.WriteLine("Invalid operator");
                     break;
             }
+            //11-Loan Eligibility System
+            //////////////////////////////
+            Console.WriteLine("Enter Your Age : ");
+            int ageuser = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your monthly income : ");
+            int userIncome = int.Parse(Console.ReadLine());
+            Console.WriteLine("Do you have an outstanding loan? (yes/no)");
+            string loan = Console.ReadLine();
+
+            if (ageuser >= 21 && ageuser <= 60 && loan.ToLower() != "yes" && userIncome >= 400)
+            {
+                Console.WriteLine("Eligible for the loan.");
+            }
+            else
+            {
+                if (ageuser < 21 || ageuser > 60)
+                {
+                    Console.WriteLine("Not eligible: Age is out of range.");
+                }
+                else if (userIncome < 400)
+                {
+                    Console.WriteLine("Not eligible: Income is too low.");
+                }
+                else if (loan.ToLower() == "yes")
+                {
+                    Console.WriteLine("Not eligible: Applicant has an existing loan.");
+                }
+            }
         }
     }
 }
