@@ -26,6 +26,18 @@
             Console.WriteLine("width: " + width);
             Console.WriteLine("Area : " + area);
             Console.WriteLine("Perimeter: " + perimeter);
+            //3- Even or Odd Checker
+            ///////////////////////////////////////////
+            Console.WriteLine("Enter the Number : ");
+            int number = int.Parse(Console.ReadLine());
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("Even Number ");
+            }
+            else
+            {
+                Console.WriteLine("Odd Number ");
+            }
         }
     }
 }
