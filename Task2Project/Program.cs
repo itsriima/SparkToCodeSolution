@@ -32,6 +32,21 @@
                 int result = numb * i;
                 Console.WriteLine(numb + " x " + i + " = " + result);
             }
+            //4-Password Retry
+            /////////////////////////////////
+            string password = "Spark2026";
+            string userPassword = "";
+            while (userPassword != password)
+            {
+                Console.WriteLine("Enter Password:");
+                userPassword = Console.ReadLine();
+
+                if (userPassword != password)
+                {
+                    Console.WriteLine("Incorrect password, try again.");
+                }
+            }
+            Console.WriteLine("Access Granted");
         }
     }
 }
