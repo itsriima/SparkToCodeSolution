@@ -83,6 +83,25 @@
                     Console.WriteLine("Reason: Password must not contain the word 'password'.");
                 }
             }
+            //Task 7 - Clean Name Comparator
+            //////////////////////////////////////////
+            Console.WriteLine("Enter your name:");
+            string name1 = Console.ReadLine();
+
+            Console.WriteLine("Enter your name again:");
+            string name2 = Console.ReadLine();
+
+            name1 = name1.Trim().ToUpper();
+            name2 = name2.Trim().ToUpper();
+
+            if (name1 == name2)
+            {
+                Console.WriteLine("Match");
+            }
+            else
+            {
+                Console.WriteLine("No Match");
+            }
 
         }
     }
