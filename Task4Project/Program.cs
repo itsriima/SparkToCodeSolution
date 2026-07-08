@@ -23,6 +23,12 @@
             double usernumber = double.Parse(Console.ReadLine());
             double result1 = CelsiusToFahrenheit(usernumber);
             Console.WriteLine("CelsiusToFahrenheit = " + result1);
+            //Task 4 - Fixed Menu Display Function
+            //////////////////////////////////////////
+            static void Main(string[] args)
+            {
+                DisplayMenu();
+            }
 
         }
         //1
@@ -41,6 +47,12 @@
             double fahrenheit = (celsius * 9 / 5) + 32;
             return fahrenheit;
         }
-
+        //4
+        static void DisplayMenu()
+        {
+            Console.WriteLine("1) Start");
+            Console.WriteLine("2) Help");
+            Console.WriteLine("3) Exit");
+        }
     }
 }
