@@ -29,6 +29,19 @@
             {
                 DisplayMenu();
             }
+            //Task 5 - Even or Odd Function
+            /////////////////////////////
+            Console.WriteLine("Enter a number:");
+            int typenumber = int.Parse(Console.ReadLine());
+            bool resultype = IsEven(typenumber);
+            if (resultype)
+            {
+                Console.WriteLine("Even number");
+            }
+            else
+            {
+                Console.WriteLine("Odd number");
+            }
 
         }
         //1
@@ -54,5 +67,11 @@
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
         }
+        //5
+        static bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
+
     }
 }
