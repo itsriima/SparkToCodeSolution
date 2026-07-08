@@ -137,6 +137,20 @@
 
                 Console.WriteLine();
             }
+            //8-Sum of Even Numbers Only
+            ///////////////////////////////////
+            Console.WriteLine("Enter a positive number:");
+            int userNumber = int.Parse(Console.ReadLine());
+            int evenSum = 0;
+
+            for (int i = 1; i <= userNumber; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum = evenSum + i;
+                }
+            }
+            Console.WriteLine("Sum of even numbers = " + evenSum);
         }
     }
 }
