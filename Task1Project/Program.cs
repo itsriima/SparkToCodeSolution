@@ -74,6 +74,26 @@
                     Console.WriteLine("Fail");
                     break;
             }
+            //6-Temperature Converter
+            /////////////////////////////////
+            Console.WriteLine("enter a temperature in Celsius : ");
+            float celsius = float.Parse(Console.ReadLine());
+            float fahrenheit = (celsius * 9 / 5) + 32;
+            string weather = "Unknown";
+            if (celsius < 10)
+            {
+                weather = "Cold";
+            }
+            else if (celsius >= 10 && celsius <= 30)
+            {
+                weather = "Mild";
+            }
+            else if (celsius > 30)
+            {
+                weather = "Hot";
+            }
+            Console.WriteLine("Temperature in Fahrenheit : " + fahrenheit);
+            Console.WriteLine("The weather classification : " + weather);
         }
     }
 }
