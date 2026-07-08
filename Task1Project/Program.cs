@@ -94,6 +94,23 @@
             }
             Console.WriteLine("Temperature in Fahrenheit : " + fahrenheit);
             Console.WriteLine("The weather classification : " + weather);
+            //7-Movie Ticket Pricing
+            ////////////////////////
+            Console.WriteLine("Enter Your Age : ");
+            int usrage = int.Parse(Console.ReadLine());
+            if (usrage <= 12)
+            {
+                Console.WriteLine("Children : 2.000 OMR");
+            }
+            else if (usrage >= 13 && usrage <= 59)
+            {
+                Console.WriteLine("Adults  : 5.000 OMR");
+            }
+            else
+            {
+                Console.WriteLine("Seniors  : 3.000 OMR");
+            }
+
         }
     }
 }
