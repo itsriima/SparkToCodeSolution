@@ -13,6 +13,14 @@
             int difference = firstNumber - secondNumber;
             int positiveDifference = Math.Abs(difference);
             Console.WriteLine("Absolute Difference: " + positiveDifference);
+            //Task 2 - Power & Root Explorer
+            ////////////////////////////////
+            Console.WriteLine("Enter a Number:");
+            double number = double.Parse(Console.ReadLine());
+            double square = Math.Pow(number, 2);
+            double squareRoot = Math.Sqrt(number);
+            Console.WriteLine("Square: " + square);
+            Console.WriteLine("Square Root: " + squareRoot);
 
         }
     }
