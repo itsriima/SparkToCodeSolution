@@ -38,6 +38,20 @@
             {
                 Console.WriteLine("Odd Number ");
             }
+            //4-Voting Eligibility
+            ///////////////////////////////////////////
+            Console.WriteLine("enter Your Age : ");
+            int userage = int.Parse(Console.ReadLine());
+            Console.WriteLine("do you have a valid national ID (yes/no)");
+
+            if (userage >= 18 && Console.ReadLine() == "yes")
+            {
+                Console.WriteLine("You are eligible to vote.");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible to vote.");
+            }
         }
     }
 }
