@@ -151,6 +151,41 @@
                 }
             }
             Console.WriteLine("Sum of even numbers = " + evenSum);
+            //9 - Validated Positive Number Input
+            ////////////////////////////////////
+            int userInput = 0;
+            bool validInput = false;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Enter a positive whole number:");
+                    userInput = int.Parse(Console.ReadLine());
+
+                    if (userInput > 0)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a number greater than zero.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input! Please enter a whole number.");
+                }
+
+            } while (!validInput);
+
+            int total = 0;
+
+            for (int counter = 1; counter <= userInput; counter++)
+            {
+                total = total + counter;
+            }
+
+            Console.WriteLine("The sum is: " + total);
         }
     }
 }
