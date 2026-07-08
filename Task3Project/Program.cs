@@ -21,6 +21,18 @@
             double squareRoot = Math.Sqrt(number);
             Console.WriteLine("Square: " + square);
             Console.WriteLine("Square Root: " + squareRoot);
+            //Task 3 - Name Formatter
+            ///////////////////////////
+            Console.WriteLine("Enter your full name:");
+            string fullName = Console.ReadLine();
+
+            string upperName = fullName.ToUpper();
+            string lowerName = fullName.ToLower();
+            int characters = fullName.Length;
+
+            Console.WriteLine("Uppercase: " + upperName);
+            Console.WriteLine("Lowercase: " + lowerName);
+            Console.WriteLine("Character Count: " + characters);
 
         }
     }
