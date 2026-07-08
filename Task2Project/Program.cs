@@ -23,6 +23,15 @@
                 sum = sum + i;
             }
             Console.WriteLine("The total sum is: " + sum);
+            //3-Multiplication Table
+            //////////////////////
+            Console.WriteLine("Enter a Number:");
+            int numb = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= 10; i++)
+            {
+                int result = numb * i;
+                Console.WriteLine(numb + " x " + i + " = " + result);
+            }
         }
     }
 }
