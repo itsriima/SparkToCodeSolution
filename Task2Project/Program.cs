@@ -93,6 +93,50 @@
             {
                 Console.WriteLine("Invalid input. Please enter numbers only.");
             }
+            //Task 7 - Repeating Menu with Exit Option
+            ///////////////////////////////////////////
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine("===== MENU =====");
+                Console.WriteLine("1) Say Hello");
+                Console.WriteLine("2) Show Current Time-of-day Greeting");
+                Console.WriteLine("3) Exit");
+                Console.Write("Enter your choice: ");
+
+                try
+                {
+                    int choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello!");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Good Morning!");
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Exiting the program...");
+                            exit = true;
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
