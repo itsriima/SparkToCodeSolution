@@ -60,6 +60,29 @@
             {
                 Console.WriteLine("Result: Fail");
             }
+            //Task 6 - Password Strength Checker
+            ///////////////////////////////////////
+            Console.WriteLine("Enter your password:");
+            string password = Console.ReadLine();
+
+            if (password.Length >= 8 && !password.ToLower().Contains("password"))
+            {
+                Console.WriteLine("Strong Password");
+            }
+            else
+            {
+                Console.WriteLine("Weak Password");
+
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("Reason: Password must be at least 8 characters long.");
+                }
+
+                if (password.ToLower().Contains("password"))
+                {
+                    Console.WriteLine("Reason: Password must not contain the word 'password'.");
+                }
+            }
 
         }
     }
