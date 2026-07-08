@@ -110,7 +110,23 @@
             {
                 Console.WriteLine("Seniors  : 3.000 OMR");
             }
-
+            //8-Restaurant Bill with Membership Discount
+            ///////////////////////////////////////////
+            Console.WriteLine("Enter Your total bill amount : ");
+            int useramount = int.Parse(Console.ReadLine());
+            Console.WriteLine("Do You Have a loyalty member (yes/no): ");
+            String usermember = Console.ReadLine().ToLower();
+            bool isMember = (usermember == "yes");
+            float discount = 0;
+            float finalAmount = useramount;
+            if (useramount > 20 && isMember)
+            {
+                discount = useramount * 15 / 100;
+                finalAmount = useramount - discount;
+            }
+            Console.WriteLine("Original Bill : " + useramount);
+            Console.WriteLine("Discount : " + discount);
+            Console.WriteLine("Final Amount : " + finalAmount);
         }
     }
 }
