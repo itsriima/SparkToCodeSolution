@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="SparkToCodeSolution/SparkToCodeSolution.csproj" />
+  <Project Path="Task1Project/Task1Project.csproj" />
 </Solution>
