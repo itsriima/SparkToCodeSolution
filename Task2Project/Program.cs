@@ -71,6 +71,28 @@
 
             Console.WriteLine("Correct!");
             Console.WriteLine("Attempts: " + attempts);
+            //6- Safe Division Calculator
+            ////////////////////////////////
+            try
+            {
+                Console.WriteLine("Enter First Number:");
+                int number1 = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter Second Number:");
+                int number2 = int.Parse(Console.ReadLine());
+
+                int result = number1 / number2;
+
+                Console.WriteLine("Result: " + result);
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Please enter numbers only.");
+            }
         }
     }
 }
