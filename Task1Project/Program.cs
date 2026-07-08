@@ -245,6 +245,93 @@
                     Console.WriteLine("Not eligible: Applicant has an existing loan.");
                 }
             }
+            //12 - Shipping Cost Calculator
+            //////////////////////////////
+            Console.WriteLine("Enter Region Code (A, B, C): ");
+            char region = char.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Package Weight (kg): ");
+            double weight = double.Parse(Console.ReadLine());
+
+            double baseCost = 0;
+            double extraCharge = 0;
+            double totalCost = 0;
+
+            switch (region)
+            {
+                case 'A':
+                    baseCost = 1.000;
+
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+
+                    totalCost = baseCost + extraCharge;
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Shipping Cost: " + totalCost + " OMR");
+                    break;
+
+                case 'B':
+                    baseCost = 3.000;
+
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+
+                    totalCost = baseCost + extraCharge;
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Shipping Cost: " + totalCost + " OMR");
+                    break;
+
+                case 'C':
+                    baseCost = 7.000;
+
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+
+                    totalCost = baseCost + extraCharge;
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Shipping Cost: " + totalCost + " OMR");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Region");
+                    break;
+            }
         }
     }
 }
