@@ -12,6 +12,17 @@
             {
                 Console.WriteLine(i);
             }
+            Console.WriteLine("Liftoff!");
+            //2 - Sum of Numbers 1 to N
+            ////////////////////////////
+            Console.WriteLine("Enter a positive number:");
+            int number = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                sum = sum + i;
+            }
+            Console.WriteLine("The total sum is: " + sum);
         }
     }
 }
