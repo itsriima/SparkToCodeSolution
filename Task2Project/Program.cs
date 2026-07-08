@@ -47,6 +47,30 @@
                 }
             }
             Console.WriteLine("Access Granted");
+            //5- Number Guessing Game
+            //////////////////////////////
+            int secretNumber = 42;
+            int guess;
+            int attempts = 0;
+            do
+            {
+                Console.WriteLine("Guess the secret number:");
+                guess = int.Parse(Console.ReadLine());
+                attempts++;
+
+                if (guess > secretNumber)
+                {
+                    Console.WriteLine("Too High");
+                }
+                else if (guess < secretNumber)
+                {
+                    Console.WriteLine("Too Low");
+                }
+
+            } while (guess != secretNumber);
+
+            Console.WriteLine("Correct!");
+            Console.WriteLine("Attempts: " + attempts);
         }
     }
 }
