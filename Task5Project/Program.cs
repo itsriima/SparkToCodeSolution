@@ -138,6 +138,35 @@
             Console.WriteLine("1st Place: " + gameScores[0]);
             Console.WriteLine("2nd Place: " + gameScores[1]);
             Console.WriteLine("3rd Place: " + gameScores[2]);
+            //Task 8 - Undo Last Action
+            ////////////////////////////////////////////
+            Stack<string> actionStack = new Stack<string>();
+            while (true)
+            {
+                Console.Write("Enter an action (or type stop): ");
+                string editorAction = Console.ReadLine();
+                if (editorAction.ToLower() == "stop")
+                {
+                    break;
+                } 
+                actionStack.Push(editorAction);
+            }
+            Console.WriteLine("Undo Actions:");
+
+            if (actionStack.Count > 0)
+            {
+                Console.WriteLine("Undo: " + actionStack.Pop());
+            }
+            if (actionStack.Count > 0)
+            {
+                Console.WriteLine("Undo: " + actionStack.Pop());
+            }
+            Console.WriteLine("Remaining Actions:");
+
+            foreach (string remainingAction in actionStack)
+            {
+                Console.WriteLine(remainingAction);
+            }
         }
     }
 }
