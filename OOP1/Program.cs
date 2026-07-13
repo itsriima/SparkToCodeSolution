@@ -72,6 +72,56 @@
                     // Placeholder for registration email
                 }
             }
+            //3- class Product
+            ///////////////////////////////////
+            public class Product
+            {
+                // Properties
+                public string ProductName { get; set; }
+                public double Price { get; set; }
+                public int StockQuantity { get; set; }
+
+                // Methods
+                public void Sell(int quantity)
+                {
+                    if (StockQuantity >= quantity)
+                    {
+                        StockQuantity -= quantity;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough stock.");
+                    }
+
+                    LogTransaction();
+                }
+
+                public void Restock(int quantity)
+                {
+                    StockQuantity += quantity;
+
+                    LogTransaction();
+                }
+
+                public double GetInventoryValue()
+                {
+                    PrintDetails();
+
+                    return Price * StockQuantity;
+                }
+
+                private void PrintDetails()
+                {
+                    Console.WriteLine("Product Name: " + ProductName);
+                    Console.WriteLine("Price: " + Price);
+                    Console.WriteLine("Stock Quantity: " + StockQuantity);
+                }
+
+                private void LogTransaction()
+                {
+                    // Placeholder for transaction logging
+                }
+            }
         }
     }
 }
