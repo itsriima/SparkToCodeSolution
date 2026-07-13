@@ -120,9 +120,11 @@
     }
         internal class Program
         {
-            static BankAccount B1 = new BankAccount();
-            static BankAccount B2 = new BankAccount();
-            static void Main(string[] args)
+        static BankAccount B1 = new BankAccount();
+        static BankAccount B2 = new BankAccount();
+        static Student S1 = new Student();
+        static Student S2 = new Student();
+        static void Main(string[] args)
             {
             // - Create sample accounts
             B1.AccountNumber = 1001;
@@ -155,9 +157,37 @@
             {
                 Console.WriteLine("Invalid choice.");
             }
+            //Case 2 - Update Student Address
+            ///////////////////////////////////
+            static void UpdateStudentAddress()
+            {
+                Console.WriteLine("Choose a student:");
+                Console.WriteLine("1. " + S1.Name);
+                Console.WriteLine("2. " + S2.Name);
+
+                int choice = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter the new address: ");
+                string newAddress = Console.ReadLine();
+
+                if (choice == 1)
+                {
+                    S1.Address = newAddress;
+                    Console.WriteLine("Address updated to: " + S1.Address);
+                }
+                else if (choice == 2)
+                {
+                    S2.Address = newAddress;
+                    Console.WriteLine("Address updated to: " + S2.Address);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice.");
+                }
+            }
         }
 
-        }
+    }
 }
 
 
