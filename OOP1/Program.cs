@@ -124,9 +124,12 @@
         static BankAccount B2 = new BankAccount();
         static Student S1 = new Student();
         static Student S2 = new Student();
+        static Product P1 = new Product();
+        static Product P2 = new Product();
         static void Main(string[] args)
             {
             // - Create sample accounts
+            // Bank Accounts
             B1.AccountNumber = 1001;
             B1.HolderName = "Karim";
             B1.Balance = 500;
@@ -135,7 +138,24 @@
             B2.HolderName = "Ali";
             B2.Balance = 300;
 
-            MakeWithdrawal();
+            // Students
+            S1.Name = "Ahmed";
+            S1.Address = "Muscat";
+            S1.Grade = 90;
+
+            S2.Name = "Ali";
+            S2.Address = "Nizwa";
+            S2.Grade = 85;
+
+            // Products
+            P1.ProductName = "Laptop";
+            P1.Price = 250;
+            P1.StockQuantity = 10;
+
+            P2.ProductName = "Mouse";
+            P2.Price = 20;
+            P2.StockQuantity = 30;
+            ViewProductDetails();
         }
         static void ViewAccountDetails()
         {
@@ -249,8 +269,33 @@
                     }
 
                 }
+        //Case 5 - View Product Details
+        /////////////////////////////////
+        static void ViewProductDetails()
+        {
+            Console.WriteLine("Choose a product:");
+            Console.WriteLine("1. " + P1.ProductName);
+            Console.WriteLine("2. " + P2.ProductName);
 
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                double value = P1.GetInventoryValue();
+                Console.WriteLine("Inventory Value: " + value);
+            }
+            else if (choice == 2)
+            {
+                double value = P2.GetInventoryValue();
+                Console.WriteLine("Inventory Value: " + value);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
         }
+
+    }
 }
 
 
