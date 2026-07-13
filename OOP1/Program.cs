@@ -124,7 +124,7 @@
             static BankAccount B2 = new BankAccount();
             static void Main(string[] args)
             {
-            //1- class 1
+            // - Create sample accounts
             B1.AccountNumber = 1001;
             B1.HolderName = "Karim";
             B1.Balance = 500;
@@ -134,10 +134,12 @@
             B2.Balance = 300;
 
             ViewAccountDetails();
-            //2- class 2
+        }
+            static void ViewAccountDetails()
+            {
             Console.WriteLine("Choose an account:");
-            Console.WriteLine("1. Karim");
-            Console.WriteLine("2. Ali");
+            Console.WriteLine("1. " + B1.HolderName);
+            Console.WriteLine("2. " + B2.HolderName);
 
             int choice = int.Parse(Console.ReadLine());
 
@@ -153,12 +155,7 @@
             {
                 Console.WriteLine("Invalid choice.");
             }
-
         }
-            static void ViewAccountDetails()
-            {
-
-            }
 
         }
 }
