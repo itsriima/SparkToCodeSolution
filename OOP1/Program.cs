@@ -1,4 +1,6 @@
-﻿namespace OOP1
+﻿using Microsoft.Win32;
+
+namespace OOP1
 {
     //1- class BankAccount
     /////////////////////////////
@@ -155,7 +157,7 @@
             P2.ProductName = "Mouse";
             P2.Price = 20;
             P2.StockQuantity = 30;
-            ViewProductDetails();
+            RegisterStudent();
         }
         static void ViewAccountDetails()
         {
@@ -294,7 +296,34 @@
                 Console.WriteLine("Invalid choice.");
             }
         }
+        //Case 6 - Register a Student
+        /////////////////////////////////////
+        static void RegisterStudent()
+        {
+            Console.WriteLine("Choose a student:");
+            Console.WriteLine("1. " + S1.Name);
+            Console.WriteLine("2. " + S2.Name);
 
+            int choice = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter email: ");
+            string email = Console.ReadLine();
+
+            if (choice == 1)
+            {
+                S1.Register(email);
+                Console.WriteLine(S1.Name + " has been registered successfully.");
+            }
+            else if (choice == 2)
+            {
+                S2.Register(email);
+                Console.WriteLine(S2.Name + " has been registered successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+        }
     }
 }
 
