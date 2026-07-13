@@ -135,10 +135,10 @@
             B2.HolderName = "Ali";
             B2.Balance = 300;
 
-            ViewAccountDetails();
+            MakeWithdrawal();
         }
-            static void ViewAccountDetails()
-            {
+        static void ViewAccountDetails()
+        {
             Console.WriteLine("Choose an account:");
             Console.WriteLine("1. " + B1.HolderName);
             Console.WriteLine("2. " + B2.HolderName);
@@ -157,6 +157,7 @@
             {
                 Console.WriteLine("Invalid choice.");
             }
+        }
             //Case 2 - Update Student Address
             ///////////////////////////////////
             static void UpdateStudentAddress()
@@ -217,10 +218,42 @@
                     Console.WriteLine("Invalid choice.");
                 }
             }
-        }
+                //Case 4 - Make a Withdrawal
+                /////////////////////////////
+                static void MakeWithdrawal()
+                {
+                    Console.WriteLine("Choose an account:");
+                    Console.WriteLine("1. " + B1.HolderName);
+                    Console.WriteLine("2. " + B2.HolderName);
 
-    }
+                    int choice = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter withdrawal amount: ");
+                    double amount = double.Parse(Console.ReadLine());
+
+                    if (choice == 1)
+                    {
+                        B1.Withdraw(amount);
+
+                        Console.WriteLine("Updated Balance: " + B1.Balance);
+                    }
+                    else if (choice == 2)
+                    {
+                        B2.Withdraw(amount);
+
+                        Console.WriteLine("Updated Balance: " + B2.Balance);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+
+                }
+
+        }
 }
+
+
 
 
 
