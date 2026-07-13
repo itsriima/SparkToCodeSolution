@@ -157,7 +157,7 @@ namespace OOP1
             P2.ProductName = "Mouse";
             P2.Price = 20;
             P2.StockQuantity = 30;
-            RegisterStudent();
+            CompareAccountBalances();
         }
         static void ViewAccountDetails()
         {
@@ -322,6 +322,23 @@ namespace OOP1
             else
             {
                 Console.WriteLine("Invalid choice.");
+            }
+        }
+        //Case 7 - Compare Two Account Balances
+        //////////////////////////////////////
+        static void CompareAccountBalances()
+        {
+            if (B1.Balance > B2.Balance)
+            {
+                Console.WriteLine(B1.HolderName + " has more money.");
+            }
+            else if (B2.Balance > B1.Balance)
+            {
+                Console.WriteLine(B2.HolderName + " has more money.");
+            }
+            else
+            {
+                Console.WriteLine("Both accounts have the same balance.");
             }
         }
     }
