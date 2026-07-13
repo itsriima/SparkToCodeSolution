@@ -185,6 +185,38 @@
                     Console.WriteLine("Invalid choice.");
                 }
             }
+            //Case 3 - Make a Deposit
+            //////////////////////////////////
+            static void MakeDeposit()
+            {
+                Console.WriteLine("Choose an account:");
+                Console.WriteLine("1. " + B1.HolderName);
+                Console.WriteLine("2. " + B2.HolderName);
+
+                int choice = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter deposit amount: ");
+                double amount = double.Parse(Console.ReadLine());
+
+                if (choice == 1)
+                {
+                    B1.Deposit(amount);
+
+                    Console.WriteLine("Holder Name: " + B1.HolderName);
+                    Console.WriteLine("Updated Balance: " + B1.Balance);
+                }
+                else if (choice == 2)
+                {
+                    B2.Deposit(amount);
+
+                    Console.WriteLine("Holder Name: " + B2.HolderName);
+                    Console.WriteLine("Updated Balance: " + B2.Balance);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice.");
+                }
+            }
         }
 
     }
