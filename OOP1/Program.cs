@@ -157,7 +157,7 @@ namespace OOP1
             P2.ProductName = "Mouse";
             P2.Price = 20;
             P2.StockQuantity = 30;
-            CompareAccountBalances();
+            RestockProduct();
         }
         static void ViewAccountDetails()
         {
@@ -339,6 +339,58 @@ namespace OOP1
             else
             {
                 Console.WriteLine("Both accounts have the same balance.");
+            }
+        }
+        //Case 8 - Restock Product & Stock Level Check
+        //////////////////////////////////////////////
+        static void RestockProduct()
+        {
+            Console.WriteLine("Choose a product:");
+            Console.WriteLine("1. " + P1.ProductName);
+            Console.WriteLine("2. " + P2.ProductName);
+
+            int choice = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter quantity to add: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                P1.Restock(quantity);
+
+                if (P1.StockQuantity < 10)
+                {
+                    Console.WriteLine("Stock Level: Low");
+                }
+                else if (P1.StockQuantity >= 10 && P1.StockQuantity <= 49)
+                {
+                    Console.WriteLine("Stock Level: Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("Stock Level: Well Stocked");
+                }
+            }
+            else if (choice == 2)
+            {
+                P2.Restock(quantity);
+
+                if (P2.StockQuantity < 10)
+                {
+                    Console.WriteLine("Stock Level: Low");
+                }
+                else if (P2.StockQuantity >= 10 && P2.StockQuantity <= 49)
+                {
+                    Console.WriteLine("Stock Level: Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("Stock Level: Well Stocked");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
             }
         }
     }
