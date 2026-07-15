@@ -7,10 +7,10 @@ namespace OOP2
     internal class Guest
     {
         // Attributes (Properties)
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
         public string GuestName { get; set; }
-        public int RoomNumber { get; set; }
-        public DateTime CheckInDate { get; set; }
+        public string RoomNumber { get; set; }
+        public string CheckInDate { get; set; }
         public int TotalNights { get; set; }
 
         // Method

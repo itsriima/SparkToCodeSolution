@@ -98,5 +98,41 @@
             Console.WriteLine("Available: " + newRoom.IsAvailable);
             Console.WriteLine("Total Rooms: " + rooms.Count);
         }
+        // Case 02 - Register New Guest
+        ////////////////////////////////////
+
+        static void RegisterNewGuest()
+        {
+            Console.Write("Enter guest name: ");
+            string guestName = Console.ReadLine();
+
+            Console.Write("Enter check-in date: ");
+            string checkInDate = Console.ReadLine();
+
+            Console.Write("Enter total nights: ");
+            int totalNights = int.Parse(Console.ReadLine());
+            if (totalNights <= 0)
+            {
+                Console.WriteLine("Total nights must be positive.");
+                return;
+            }
+
+            string guestId = "G" + (guests.Count + 1).ToString("000");
+            Guest newGuest = new Guest();
+            newGuest.GuestId = guestId;
+            newGuest.GuestName = guestName;
+            newGuest.CheckInDate = checkInDate;
+            newGuest.TotalNights = totalNights;
+            newGuest.RoomNumber = "Not Assigned";
+
+            guests.Add(newGuest);
+
+            Console.WriteLine("Guest registered successfully!");
+            Console.WriteLine("Guest ID: " + newGuest.GuestId);
+            Console.WriteLine("Guest Name: " + newGuest.GuestName);
+            Console.WriteLine("Room Number: " + newGuest.RoomNumber);
+            Console.WriteLine("Check In Date: " + newGuest.CheckInDate);
+            Console.WriteLine("Total Nights: " + newGuest.TotalNights);
+        }
     }
 }
