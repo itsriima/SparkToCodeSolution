@@ -53,7 +53,7 @@
                 PricePerNight = 100,
                 IsAvailable = true
             });
-          
+            SearchFilterRooms();
         }
         //Case 01 Add New Room
         //////////////////////////////////////
@@ -249,6 +249,67 @@
                     Console.WriteLine("----------------------------------");
                 }
             }
+        //Case 06 Search & Filter Rooms 
+        static void SearchFilterRooms()
+        {
+            Console.WriteLine("===== Search & Filter Rooms =====");
+            Console.WriteLine("1. Show All Available Rooms");
+            Console.WriteLine("2. Filter by Room Type");
+            Console.WriteLine("3. Filter by Max Price");
+            Console.WriteLine("4. Room Price Statistics");
+            Console.WriteLine("0. Back");
+
+            Console.Write("Choose: ");
+
+            int choice = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 0:
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid Choice");
+                    break;
+               // case 1:
+
+                    var availableRooms =
+                    rooms.Where(r => r.IsAvailable)
+                    .OrderBy(r => r.PricePerNight);
+
+                    break;
+                    Console.WriteLine("Available Rooms: "
+                    + availableRooms.Count());
+                    if (availableRooms.Count() == 0)
+                    {
+                        Console.WriteLine("No rooms found for the selected criteria.");
+                        break;
+                    }
+
+                    foreach (var room in availableRooms)
+                    {
+                        Console.WriteLine("----------------------");
+                        Console.WriteLine("Room Number: " + room.RoomNumber);
+                        Console.WriteLine("Room Type: " + room.RoomType);
+                        Console.WriteLine("Price: " + room.PricePerNight.ToString("F2"));
+                    }
+            }
         }
     }
+}
 
