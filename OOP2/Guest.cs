@@ -10,7 +10,7 @@ namespace OOP2
         public string GuestId { get; set; }
         public string GuestName { get; set; }
         public string RoomNumber { get; set; }
-        public string CheckInDate { get; set; }
+        public DateTime CheckInDate { get; set; }
         public int TotalNights { get; set; }
 
         // Method

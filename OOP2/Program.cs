@@ -53,11 +53,7 @@
                 PricePerNight = 100,
                 IsAvailable = true
             });
-            //foreach (Room room in rooms)
-            //{
-            //    room.DisplayRoom();
-            //    Console.WriteLine();
-            //}
+          
         }
         //Case 01 Add New Room
         //////////////////////////////////////
@@ -108,6 +104,9 @@
 
             Console.Write("Enter check-in date: ");
             string checkInDate = Console.ReadLine();
+            string guestId = "G" + (guests.Count + 1).ToString("000");
+            Guest newGuest = new Guest();
+            newGuest.CheckInDate = DateTime.Parse(checkInDate);
 
             Console.Write("Enter total nights: ");
             int totalNights = int.Parse(Console.ReadLine());
@@ -116,12 +115,9 @@
                 Console.WriteLine("Total nights must be positive.");
                 return;
             }
-
-            string guestId = "G" + (guests.Count + 1).ToString("000");
-            Guest newGuest = new Guest();
             newGuest.GuestId = guestId;
             newGuest.GuestName = guestName;
-            newGuest.CheckInDate = checkInDate;
+            newGuest.CheckInDate = DateTime.Parse(checkInDate);
             newGuest.TotalNights = totalNights;
             newGuest.RoomNumber = "Not Assigned";
 
@@ -216,5 +212,43 @@
                 }
             }
         }
+            //Case 05- View All Guests 10 pts
+            static void ViewAllGuests()
+            {
+                // Check if the guests list is empty
+                if (guests.Count() == 0)
+                {
+                    Console.WriteLine("No guests have been registered yet.");
+                    return;
+                }
+
+                // Display total number of guests
+                Console.WriteLine("Total Guests: " + guests.Count());
+                Console.WriteLine("----------------------------------");
+
+                // Sort guests by name and select required information
+                var guestList = guests
+                    .OrderBy(g => g.GuestName)
+                    .Select(g => new
+                    {
+                        g.GuestId,
+                        g.GuestName,
+                        g.RoomNumber,
+                        g.CheckInDate,
+                        g.TotalNights
+                    });
+
+                // Display all guests
+                foreach (var guest in guestList)
+                {
+                    Console.WriteLine("Guest ID: " + guest.GuestId);
+                    Console.WriteLine("Guest Name: " + guest.GuestName);
+                    Console.WriteLine("Room Number: " + guest.RoomNumber);
+                    Console.WriteLine("Check-In Date: " + guest.CheckInDate);
+                    Console.WriteLine("Total Nights: " + guest.TotalNights);
+                    Console.WriteLine("----------------------------------");
+                }
+            }
+        }
     }
-}
+
