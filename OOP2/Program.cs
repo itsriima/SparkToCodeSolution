@@ -53,7 +53,7 @@
                 PricePerNight = 100,
                 IsAvailable = true
             });
-            GuestBookingStatistics();
+            UpdateRoomPrice();
         }
         //Case 01 Add New Room
         //////////////////////////////////////
@@ -383,6 +383,48 @@
                     Console.WriteLine(item);
                 }
             }
+        // Case 08 - Update Room Price
+        ////////////////////////////////////
+        static void UpdateRoomPrice()
+        {
+            // Ask the user to enter the room number
+            Console.Write("Enter room number: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+
+            //Search for the room using LINQ FirstOrDefault()
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+            //Check if the room exists
+            if (room == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+
+            // Ask the user for the new price
+            Console.Write("Enter new price per night: ");
+            double newPrice = double.Parse(Console.ReadLine());
+
+            // Validate that the price is positive
+            if (newPrice <= 0)
+            {
+                Console.WriteLine("Price must be positive.");
+                return;
+            }
+
+            //Save the old price before updating
+            double oldPrice = room.PricePerNight;
+
+            // Update the room price
+            room.PricePerNight = newPrice;
+
+            //Display confirmation
+            Console.WriteLine();
+            Console.WriteLine("Room price updated successfully!");
+            Console.WriteLine("Room Number: " + room.RoomNumber);
+            Console.WriteLine("Old Price: OMR " + oldPrice.ToString("F2"));
+            Console.WriteLine("New Price: OMR " + room.PricePerNight.ToString("F2"));
+        }
     }
 
 }
