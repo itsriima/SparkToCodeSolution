@@ -53,7 +53,7 @@
                 PricePerNight = 100,
                 IsAvailable = true
             });
-            UpdateRoomPrice();
+            GuestLookupByName();
         }
         //Case 01 Add New Room
         //////////////////////////////////////
@@ -424,6 +424,38 @@
             Console.WriteLine("Room Number: " + room.RoomNumber);
             Console.WriteLine("Old Price: OMR " + oldPrice.ToString("F2"));
             Console.WriteLine("New Price: OMR " + room.PricePerNight.ToString("F2"));
+        }
+        // Case 09 - Guest Lookup by Name
+        ////////////////////////////////////////
+        static void GuestLookupByName()
+        {
+            // Step 1: Ask the user to enter a guest name or part of the name
+            Console.Write("Enter guest name or part of the name: ");
+            string searchName = Console.ReadLine().ToLower();
+
+            // Step 2: Search for matching guests using LINQ Where()
+            var matchingGuests = guests
+                .Where(g => g.GuestName.ToLower().Contains(searchName));
+
+            // Step 3: Check if no guests were found
+            if (matchingGuests.Count() == 0)
+            {
+                Console.WriteLine("No guests matched that search.");
+                return;
+            }
+
+            // Step 4: Display the total number of matches
+            Console.WriteLine("Matching Guests: " + matchingGuests.Count());
+            Console.WriteLine("----------------------------------");
+
+            // Step 5: Display each matching guest
+            foreach (var guest in matchingGuests)
+            {
+                Console.WriteLine("Guest ID: " + guest.GuestId);
+                Console.WriteLine("Guest Name: " + guest.GuestName);
+                Console.WriteLine("Room Number: " + guest.RoomNumber);
+                Console.WriteLine("----------------------------------");
+            }
         }
     }
 
