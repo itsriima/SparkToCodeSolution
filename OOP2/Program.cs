@@ -53,7 +53,7 @@
                 PricePerNight = 100,
                 IsAvailable = true
             });
-            SearchFilterRooms();
+            GuestBookingStatistics();
         }
         //Case 01 Add New Room
         //////////////////////////////////////
@@ -286,7 +286,7 @@
                 default:
                     Console.WriteLine("Invalid Choice");
                     break;
-               // case 1:
+                    // case 1:
 
                     var availableRooms =
                     rooms.Where(r => r.IsAvailable)
@@ -310,6 +310,85 @@
                     }
             }
         }
+            //Case 07 - Guest & Booking Statistics
+            /////////////////////////////////////////////////
+            static void GuestBookingStatistics()
+            {
+                //Total guests and guests with a reservation
+                Console.WriteLine("===== Guest & Booking Statistics =====");
+
+                Console.WriteLine("Total Registered Guests: " + guests.Count());
+
+                Console.WriteLine("Guests With Active Booking: " +
+                    guests.Count(g => g.RoomNumber != "Not Assigned"));
+                //Room statistics
+                Console.WriteLine("Total Rooms: " + rooms.Count());
+                Console.WriteLine("Booked Rooms: " +
+                    rooms.Count(r => !r.IsAvailable));
+                //Are there any reservations?
+                if (!guests.Any(g => g.RoomNumber != "Not Assigned"))
+                {
+                    Console.WriteLine("No active bookings recorded.");
+                    return;
+                }
+                    //Average number of nights
+                    double averageNights =
+                    guests
+                    .Where(g => g.RoomNumber != "Not Assigned")
+                    .Average(g => g.TotalNights);
+
+                    Console.WriteLine("Average Nights: " +
+                        averageNights.ToString("F2"));
+                    //Top 3 guests who paid the most
+                    var topGuests =
+                    guests
+                    .Where(g => g.RoomNumber != "Not Assigned")
+                    .OrderByDescending(g =>
+                    g.CalculateTotalCost(
+                    rooms.First(r => r.RoomNumber.ToString() == g.RoomNumber)
+                   .PricePerNight))
+                   .Take(3);
+
+                foreach (var guest in topGuests)
+                {
+                    Room room =
+                        rooms.First(r => r.RoomNumber.ToString() == guest.RoomNumber);
+
+                    double total =
+                        guest.CalculateTotalCost(room.PricePerNight);
+
+                    Console.WriteLine("Guest Name: " + guest.GuestName);
+                    Console.WriteLine("Room Number: " + guest.RoomNumber);
+                    Console.WriteLine("Total Cost: OMR " + total.ToString("F2"));
+                    Console.WriteLine("--------------------------------");
+                }
+                //Summary using Select
+                var summary =
+                guests
+                .Where(g => g.RoomNumber != "Not Assigned")
+                .Select(g =>
+                {
+                Room room =
+                rooms.First(r => r.RoomNumber.ToString() == g.RoomNumber);
+
+                double total =
+                g.CalculateTotalCost(room.PricePerNight);
+
+                return $"{g.GuestName} - Room {g.RoomNumber} - {g.TotalNights} nights - OMR {total:F2}";
+                });
+                Console.WriteLine();
+                Console.WriteLine("===== Booking Summary =====");
+                foreach (var item in summary)
+                {
+                    Console.WriteLine(item);
+                }
+            }
     }
+
 }
+
+
+
+
+
 
